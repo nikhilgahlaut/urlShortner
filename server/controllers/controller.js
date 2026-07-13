@@ -17,7 +17,7 @@ export const createShortUrl = async (req, res) => {
     if (existingUrl) {
       return res.status(200).json({
         message: "URL already exists",
-        shortUrl: `http://localhost:3000/${existingUrl.shortUrl}`,
+        shortUrl: `http://localhost:4000/${existingUrl.shortUrl}`,
         longUrl: existingUrl.longUrl,
       });
     }
@@ -31,7 +31,7 @@ export const createShortUrl = async (req, res) => {
 
     return res.status(201).json({
       message: "Short URL created successfully",
-      shortUrl: `http://localhost:3000/${shortCode}`,
+      shortUrl: `http://localhost:4000/${shortCode}`,
       longUrl,
     });
   } catch (error) {
@@ -56,7 +56,7 @@ export const redirectToLongUrl = async (req, res) => {
     }
 
     return res.redirect(urlEntry.longUrl);
-    
+
   } catch (error) {
     console.error(error);
 
